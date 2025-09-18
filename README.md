@@ -1,2 +1,1 @@
-# Lab-1-eecs-348-
-git and github
+all my eecs348 labs
