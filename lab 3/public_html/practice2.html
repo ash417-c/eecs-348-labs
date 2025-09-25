@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #colorParagraph {
+            border: 4px solid #000;
+            padding: 16px;
+            width: 60%;
+            margin: 20px auto;
+        }
+        .controls {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label>Paragraph RGB: <input type="text" id="paraRGB" placeholder="e.g. 255,0,0"></label>
+        <label>Border RGB: <input type="text" id="borderRGB" placeholder="e.g. 0,0,255"></label>
+        <label>Border Width (px): <input type="number" id="borderWidth" min="1" max="20" value="4"></label>
+        <button onclick="applyColors()">Apply</button>
+    </div>
+    <div id="colorParagraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet cursus, enim erat dictum urna, nec dictum massa enim nec erat.
+    </div>
+    <script>
+        function rgbString(str) {
+            const parts = str.split(',').map(x => x.trim());
+            if (parts.length !== 3) return null;
+            const [r, g, b] = parts.map(Number);
+            if ([r, g, b].some(x => isNaN(x) || x < 0 || x > 255)) return null;
+            return `rgb(${r},${g},${b})`;
+        }
+        function applyColors() {
+            const paraRGB = document.getElementById('paraRGB').value;
+            const borderRGB = document.getElementById('borderRGB').value;
+            const borderWidth = document.getElementById('borderWidth').value;
+            const para = document.getElementById('colorParagraph');
+            const paraColor = rgbString(paraRGB);
+            const borderColor = rgbString(borderRGB);
+            if (paraColor) para.style.color = paraColor;
+            if (borderColor) para.style.borderColor = borderColor;
+            if (borderWidth) para.style.borderWidth = borderWidth + 'px';
+        }
+    </script>
+</body>
+</html>
