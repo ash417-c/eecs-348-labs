@@ -1,4 +1,4 @@
 FROM gcc:latest
 COPY . .
 RUN make
-CMD ["./main"]
+CMD ["./main.exe"]

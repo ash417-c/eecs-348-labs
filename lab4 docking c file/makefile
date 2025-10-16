@@ -4,12 +4,12 @@ hello:
 	@echo "Hello!"
 
 compile:
-	$(CC) main.c isOdd.c $(cflags) program.exe
+	$(CC) main.c isOdd.c $(cflags) main.exe
 
 run: compile
-	@./program.exe
+	@./main.exe
 
 clean:
-	@rm -f program.exe
+	@del -f main.exe
 
-all: compile run clean
+all: compile run
