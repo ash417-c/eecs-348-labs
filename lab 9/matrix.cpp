@@ -162,6 +162,10 @@ auto valueUpdate(vector<vector<string>> a, int row, int col, int value) {
 }
 
 int main() {
+    /*
+    all functions create a new matrix/ pass by value
+    reads from a file named input.txt
+    */
     string filename = "input.txt";
     auto matrices = buildInput(filename); //create file
 
